@@ -22,6 +22,7 @@ class server(threading.Thread):
             "welcome", "SEER Server\nMweya Ruider - 2019\n\n")
         # The host to run this on
         self.host = kwargs.get('host', "")
+        # Potentially helpful information for if this dies
 
     def run(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -30,10 +31,12 @@ class server(threading.Thread):
             s.listen(1)
             conn, addr = s.accept()
             with conn:
-                # Ask client for path
-                # Get path from client
+                # Get command + path from client
+
                 # Get file bundle in path
+
                 # Compress bundle
+
                 # Encrypt bundle
                 # Return information
                 data = "Welcome to SEER"
@@ -95,6 +98,7 @@ class connHandler():
         self.host = kwargs.get('host', "127.0.0.1")
         self.welcome = kwargs.get(
             "welcome", "SEER Server\nMweya Ruider - 2019\n\n")
+
         # The maximum amount of threads to run
         # (equates to the maximum amount of simultaneous connections).
         # 0 <- No limit
