@@ -51,7 +51,7 @@ class watchdog(threading.Thread):
             printErrors()
 
         def printErrors():
-            global error_log
+            #global error_log
             print("\tErrors:")
             i = 0
             for error in error_log:
@@ -60,7 +60,7 @@ class watchdog(threading.Thread):
             printWarnings()
 
         def printWarnings():
-            global warning_log
+            #global warning_log
             print("\tWarnings:")
             i = 0
             for warning in warning_log:
@@ -69,7 +69,7 @@ class watchdog(threading.Thread):
             printNotifications()
 
         def printNotifications():
-            global info_log
+            #global info_log
             print("\tNotifications:")
             i = 0
             for notification in info_log:
@@ -107,7 +107,7 @@ class connHandler():
         s.listen(10)
         conn, addr = s.accept()
         with conn:
-            global info_log
+            #global info_log
             info_log.append("Connection from " + str(addr))
 
             # Set up server for client to talk to
@@ -126,10 +126,10 @@ class connHandler():
                         self.server_ports.append(server_port)
                         self.servers.append(new_server)
                     except Exception as e:
-                        global error_log
+                        #global error_log
                         error_log.append(str(e))
                 else:
-                    global error_log
+                    #global error_log
                     error_log.append(
                         "Thread limit hit, cannot create new thread")
 
