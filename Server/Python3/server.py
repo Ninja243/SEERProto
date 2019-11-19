@@ -148,8 +148,12 @@ class connHandler():
                         new_server_port = createServerThread()
                         # Reply to client with new server port
                         try:
-                            conn.sendall(
-                                "Server available at port: "+str(new_server_port))
+                            message = "Server available at port: " + \
+                                str(new_server_port)
+                            message = bytes(message, "utf-8")
+                            conn.sendall(message)
+                            info_log.append("Handoff to port " +
+                                            str(new_server_port)+" completed")
                         except Exception as e:
                             error_log.append(e)
                     else:
@@ -164,8 +168,12 @@ class connHandler():
                             str(new_server_port)
                         message = bytes(message, "utf-8")
                         conn.sendall(message)
+                        info_log.append("Handoff to port " +
+                                        str(new_server_port)+" completed")
                     except Exception as e:
                         error_log.append(e)
+
+                conn.close()
 
                 # while True:
                 #    data = conn.recv(1024)
