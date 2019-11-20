@@ -1,0 +1,7 @@
+The "list" command returns a list of objects searched for.
+For example:
+
+    > list servers
+
+Lists all servers that have been started by the main connection
+handler.

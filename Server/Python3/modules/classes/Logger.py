@@ -1,5 +1,7 @@
+import datetime
+
+
 class LogFile():
-    import datetime
 
     def __init__(self, *args, **kwargs):
         # Lists to store error messages in case something goes wrong
@@ -18,13 +20,14 @@ class LogFile():
         return self.error_log
 
     def logError(self, error):
-        self.error_log.append(str(error))
+        self.error_log.append(str(error)+"\n@ "+str(datetime.datetime.now()))
 
     def logWarning(self, warning):
-        self.warning_log.append(str(warning))
+        self.warning_log.append(str(warning)+"\n@ " +
+                                str(datetime.datetime.now()))
 
     def logInfo(self, info):
-        self.info_log.append(str(info))
+        self.info_log.append(str(info)+"\n@ "+str(datetime.datetime.now()))
 
     def dumpLogsToFile(self, filename="log-" + str(datetime.datetime.now()) + ".txt"):
         f = open(filename, "w")

@@ -1,0 +1,15 @@
+Welcome to the SEER Server
+
+This server is currently serving clients at the address above
+and will continue to do so until the server is shut down.
+
+For help on specific topics use the following syntax in the
+shell below:
+
+    > help topic
+
+Where the word "topic" should be replaced with the command
+you need help with. For a list of commands use the 
+following command in the shell below:
+
+    > list commands
